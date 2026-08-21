@@ -9,6 +9,23 @@
 </head>
 <body>
     <div class="container">
+        <!-- Navigation Menu -->
+        <nav class="navbar">
+            <div class="nav-brand">🗺️ chtoun Maps</div>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="goToHome()">🏠 الرئيسية</a></li>
+                <li><a href="#" onclick="toggleAbout()">ℹ️ عن التطبيق</a></li>
+                <li><a href="#" onclick="showFeaturedLocations()">⭐ الأماكن المميزة</a></li>
+                <li><a href="#" onclick="toggleSettings()">⚙️ الإعدادات</a></li>
+                <li><a href="#" onclick="toggleContact()">📧 اتصل بنا</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
         <header>
             <h1>🗺️ خريطة عامة تفاعلية</h1>
             <p>استكشف العالم من خلال هذه الخريطة التفاعلية</p>
@@ -20,6 +37,60 @@
         </div>
         
         <div id="map"></div>
+
+        <!-- About Modal -->
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="toggleAbout()">&times;</span>
+                <h2>عن التطبيق</h2>
+                <p>خريطة GPS تفاعلية تساعدك على استكشاف العالم والبحث عن الأماكن المختلفة بسهولة.</p>
+                <p><strong>المزايا:</strong></p>
+                <ul>
+                    <li>خريطة تفاعلية عالية الجودة</li>
+                    <li>البحث عن الأماكن والمدن</li>
+                    <li>عرض الأماكن المشهورة</li>
+                    <li>واجهة سهلة الاستخدام</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="toggleSettings()">&times;</span>
+                <h2>الإعدادات</h2>
+                <div class="settings-group">
+                    <label>
+                        <input type="checkbox" id="darkMode" onchange="toggleDarkMode()">
+                        الوضع الداكن
+                    </label>
+                </div>
+                <div class="settings-group">
+                    <label>
+                        <input type="checkbox" id="showMarkers" checked onchange="toggleMarkers()">
+                        عرض العلامات
+                    </label>
+                </div>
+                <div class="settings-group">
+                    <label>مستوى التكبير الافتراضي:</label>
+                    <input type="range" id="zoomLevel" min="2" max="18" value="2" onchange="setDefaultZoom()">
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Modal -->
+        <div id="contactModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="toggleContact()">&times;</span>
+                <h2>اتصل بنا</h2>
+                <form id="contactForm" onsubmit="sendMessage(event)">
+                    <input type="text" placeholder="الاسم" required>
+                    <input type="email" placeholder="البريد الإلكتروني" required>
+                    <textarea placeholder="الرسالة" rows="5" required></textarea>
+                    <button type="submit">إرسال</button>
+                </form>
+            </div>
+        </div>
         
         <footer>
             <p>© 2026 خريطة GPS - مدعومة بـ Leaflet و OpenStreetMap</p>
