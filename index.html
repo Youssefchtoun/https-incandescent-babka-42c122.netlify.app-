@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خريطة GPS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗺️ خريطة عامة تفاعلية</h1>
+            <p>استكشف العالم من خلال هذه الخريطة التفاعلية</p>
+        </header>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="ابحث عن مكان...">
+            <button onclick="searchLocation()">بحث</button>
+        </div>
+        
+        <div id="map"></div>
+        
+        <footer>
+            <p>© 2026 خريطة GPS - مدعومة بـ Leaflet و OpenStreetMap</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
